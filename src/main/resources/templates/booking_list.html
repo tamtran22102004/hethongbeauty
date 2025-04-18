@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Danh sách lịch đã đặt</title>
+</head>
+<body>
+<h1>Lịch đã đặt</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Dịch vụ</th>
+    <th>Tên khách</th>
+    <th>SĐT</th>
+    <th>Thời gian hẹn</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="booking : ${bookings}">
+    <td th:text="${booking.service.name}"></td>
+    <td th:text="${booking.customerName}"></td>
+    <td th:text="${booking.customerPhone}"></td>
+    <td th:text="${#temporals.format(booking.appointmentTime, 'dd/MM/yyyy HH:mm')}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/">Quay lại trang chủ</a>
+</body>
+</html>

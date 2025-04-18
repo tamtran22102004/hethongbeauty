@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập - KAMOI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #000;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .left-side {
+      display: none;
+    }
+
+    .right-side {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-box {
+      background-color: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .login-box h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fafafa;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0095f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      color: #888;
+      font-size: 12px;
+    }
+
+    .facebook-login {
+      color: #385185;
+      text-align: center;
+      margin: 10px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .forgot {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .register-box {
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fff;
+    }
+
+    .register-box a {
+      color: #0095f6;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+
+    .app-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .app-links img {
+      height: 40px;
+      margin: 5px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .left-side {
+        display: block;
+        margin-right: 50px;
+      }
+
+      .left-side img {
+        height: 550px;
+      }
+    }
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .logo-img {
+      height: 60px; /* điều chỉnh kích thước logo tùy thích */
+      object-fit: contain;
+    }
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      height: 40px; /* Điều chỉnh tùy thích */
+      object-fit: contain;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left-side">
+    <img src="/images/logo.png" alt="Preview điện thoại" />
+  </div>
+
+  <div class="right-side">
+    <div class="login-box">
+      <div class="brand-header">
+        <img src="/images/logo.png" alt="Logo Kamoi" class="logo-img" />
+        <h2>KAMOI</h2>
+      </div>
+      <form th:action="@{/login}" method="post">
+        <input type="text" name="username" placeholder="Tên đăng nhập hoặc email" required />
+        <input type="password" name="password" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
+      </form>
+
+      <div th:if="${error}" class="error" th:text="${error}" style="color:red; text-align:center;"></div>
+
+      <div class="divider"><span>HOẶC</span></div>
+
+      <div class="facebook-login">
+        <a href="#" style="color: #385185; text-decoration: none;">Đăng nhập bằng Facebook</a>
+      </div>
+
+      <div class="register-box">
+        Bạn chưa có tài khoản?
+        <a th:href="@{/register}">Đăng ký</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+</div>
+</body>
+</html>
