@@ -31,4 +31,8 @@ public class Booking {
 
     @Column(nullable = false)
     private LocalDateTime appointmentTime; // Thời gian hẹn
+
+    @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
+    private Payment payment;
+
 }

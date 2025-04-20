@@ -61,22 +61,15 @@
               <i class="bi bi-person-badge"></i> Chuyên Viên
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/history}">
-              <i class="bi bi-clock-history"></i> Lịch Sử
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/db_report}">
-              <i class="bi bi-graph-up-arrow"></i> Báo Cáo
-            </a>
-          </li>
+
 
           <!-- Nếu đã đăng nhập -->
           <li class="nav-item" th:if="${username != null}">
-            <a class="nav-link disabled" href="#">
+            <a class="nav-link disabled text-primary fw-semibold" href="#">
               <i class="bi bi-person-circle"></i> Xin chào, <span th:text="${username}">User</span>!
             </a>
+
+
           </li>
           <li class="nav-item" th:if="${username != null}">
             <a class="nav-link" th:href="@{/logout}">
